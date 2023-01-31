@@ -1,0 +1,269 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 
+2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Warning" -1 7 1 
+{CSTYLE "" -1 -1 "Courier" 1 10 0 0 255 1 2 2 2 2 2 1 1 1 3 1 }1 1 0 
+0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 12 1 {CSTYLE "" -1 
+-1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }1 3 0 0 0 0 1 0 1 0 2 2 
+0 1 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 15 "with(networks):" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 14 "with(Maplets):" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 24 "with(Maplets[Elements]):" }}}{EXCHG {PARA 0 "> " 0 
+"" {MPLTEXT 1 0 18 "with(StringTools):" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 10 "G:=new(G):" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 13 "Cw:=
+curves():" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 130 "ShowHelp:=pro
+c()\n Display(\n  Maplet(\n   Window[W2](title=\"Help\",\n    [\n     \+
+utton(\"OK\",Shutdown('W1'))\n    ]\n   )\n  )\n )\nend proc:" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 458 "SetGraph := proc()\nDisplay
+(\n  Maplet(\n   Window[W3](title=\"\307\340\344\340\362\374 \343\360
+\340\364\",\n    [\n     \"\302\342\345\344\350\362\345 \352\356\353
+\350\367\345\361\362\342\356 \342\345\360\370\350\355 \343\360\340\364
+\340:\",\n     TextField[TV](7,halign=left,value=\"6\"),\n     \"\302
+\342\345\344\350\362\345 \360\345\341\360\340 \343\360\340\364\340 \+
+\342 \364\356\360\354\340\362\345 [\355\356\354\345\360 \342\345\360
+\370\350\355\373, \355\356\354\345\360 \342\345\360\370\350\355\373]:
+\",\n     TextField(7,halign=left,value=\"[1,2]\"),\n     BoxRow(Butto
+n(\"\317\356\361\362\360\356\350\362\374\",Evaluate(function=\"Plt\"))
+)\n    ]\n   )\n  )\n )\nend proc:\n#[1,4], [2,5], [3,6], [1, 2], [2, \+
+3], [4, 5], [5, 6], [1, 5]\n#12, 16, 20, 11, 15, 13, 14, 26" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 400 "Plt:=proc()\n local edges, \+
+vertices,G, weights,cw,i:\n new(G):\n vertices:=Maplets:-Tools:-Get('T
+FF'::integer):\n #edges:=Maplets:-Tools:-Get('TR'::rtable):\n addverte
+x(i $ (i = 1 .. vertices),G):\n addedge([seq([i, i + 3], i = 1 .. 3), \+
+[1, 2], [2, 3], [4, 5], [5, 6], [1, 5]],G):\n cw:=draw(G):\n T:=shortp
+athtree(G,1):\n path:=draw(T):\n Maplets:-Tools:-Set(Pl1=cw):\n Maplet
+s:-Tools:-Set(Pl2=path):\nend proc:" }}{PARA 7 "" 1 "" {TEXT -1 61 "Wa
+rning, `T` is implicitly declared local to procedure `Plt`\n" }}{PARA 
+7 "" 1 "" {TEXT -1 64 "Warning, `path` is implicitly declared local to
+ procedure `Plt`\n" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 305 "MyGr
+aph:=proc()\n local edges, vertices,G,path,T,cw:\n vertices:=Maplets:-
+Tools:-Get('TFF'::integer):\n #edges:=Maplets:-Tools:-Get('TFR'::integ
+er):\n G:=random(vertices,prob=0.8):\n cw:=draw(G):\n T := shortpathtr
+ee(G, 1):\n path:=draw(T):\n Maplets:-Tools:-Set(Pl1=cw):\n Maplets:-T
+ools:-Set(Pl2=path):\nend proc:" }}}{EXCHG {PARA 7 "" 1 "" {TEXT -1 
+65 "Warning, `G` is implicitly declared local to procedure `MyGraph`\n
+" }}{PARA 7 "" 1 "" {TEXT -1 66 "Warning, `cw` is implicitly declared \+
+local to procedure `MyGraph`\n" }}{PARA 7 "" 1 "" {TEXT -1 65 "Warning
+, `T` is implicitly declared local to procedure `MyGraph`\n" }}{PARA 
+7 "" 1 "" {TEXT -1 68 "Warning, `path` is implicitly declared local to
+ procedure `MyGraph`\n" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#>%(MyGraphGf
+*6\"6(%&edgesG%)verticesG%\"GG%#cwG%\"TG%%pathGF&F&C+>8%-__%(MapletsG%
+&ToolsG%$GetG6#'.%$TFFG%(integerG>8$-F26#'.%$TFRGF;-%&printG6#F0>8&-%'
+randomG6$F0F=>8'-%%drawG6#FG>8(-%.shortpathtreeG6$FG\"\"\">8)-FN6#FQ-_
+F3%$SetG6#/%$Pl1GFL-Fen6#/%$Pl2GFWF&F&F&" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 3482 "M:=Maplet('onstartup' = Action(RunWindow('W1')),\n \+
+Window[Help]('title' = \"\317\356\354\356\371\374\", [\n    GridLayout
+( halign = center,\n    GridRow(\n        GridCell(\"\317\360\356\343
+\360\340\354\354\340 \361\362\360\356\350\362 \344\345\360\345\342\356
+ \352\360\340\362\367\340\351\370\350\365 \357\363\362\345\351 \342 \+
+\343\360\340\364\345, \352\356\362\356\360\373\351 \341\373\353 \361
+\343\345\355\345\360\350\360\356\342\340\355 \361\353\363\367\340\351
+\355\356 \350\353\350 \347\340\344\340\355 \357\356\353\374\347\356
+\342\340\362\345\353\345\354.\\n\317\356\353\374\347\356\342\340\362
+\345\353\374 \354\356\346\345\362 \347\340\344\340\362\374 \350\361
+\365\356\344\355\373\351 \343\360\340\364 \357\356 \352\356\353\350
+\367\345\361\362\342\363 \342\345\360\370\350\355, \354\340\361\361
+\350\342\363 \357\363\362\345\351 \354\345\346\344\363 \342\345\360
+\370\350\355\340\354\350(\343\344\345 \352\340\346\344\373\351 \375
+\353\345\354\345\355\362 [x,y]\\n - \375\362\356 \360\345\341\360\356 \+
+\361\356\345\344\350\355\377\376\371\345\345 \342\345\360\370\350\355
+\373 x \350 y, \340 \362\340\352\346\345 \354\340\361\361\350\342\363 \+
+\342\345\361\356\342 \375\362\350\365 \360\345\341\345\360.\"\n    )\n
+    ),\n    GridRow(\n        GridCell(\n        \"\\n \\n\"\n    )\n \+
+   ),\n    GridRow(\n        GridCell(\"\312\355\356\357\352\340 \\\"
+\321\353\363\367\340\351\355\373\351 \343\360\340\364\\\" \343\345\355
+\345\360\350\360\363\345\362 \361\353\363\367\340\351\355\373\351 \343
+\360\340\364 \355\340 \347\340\344\340\355\355\356\354 \352\356\353
+\350\367\345\361\362\342\345 \342\345\360\370\350\355 \350 \361\362
+\360\356\350\362 \344\345\360\345\342\356 \352\360\340\362\367\340\351
+\370\350\365 \357\363\362\345\351 \342 \355\345\354.\\n \312\355\356
+\357\352\340 \\\"\314\356\351 \343\360\340\364\\\" \343\345\355\345
+\360\350\360\363\345\362 \343\360\340\364 \357\356 \350\361\365\356
+\344\355\373\354 \344\340\355\355\373\354 \350 \361\362\360\356\350
+\362 \344\345\360\345\342\356 \352\360\340\362\367\340\351\370\350\365
+ \357\363\362\345\351 \342 \355\345\354.\"),\n        GridCell(\n     \+
+   \"\\n \\n\"\n    )\n    ),\n    GridRow(\n        GridCell(\n      \+
+  \"\\n \\n\"\n    )\n    ),\n    GridRow(\n        GridCell(\n       \+
+ Button(\"\302\345\360\355\363\362\374\361\377\", Action(CloseWindow('
+Help')))\n    ) \n    )\n    )\n]\n),\n Window[About]('title' = \"\316
+ \357\360\356\343\360\340\354\354\345\", [\n    GridLayout( halign = c
+enter,\n    GridRow(\n        GridCell(\n        \"\317\360\356\345
+\352\362 \\\"\317\356\350\361\352 \357\363\362\345\351 \342 \343\360
+\340\364\345\\\"\\n \\n\"\n    )\n    ),\n    GridRow(\n        GridCe
+ll(\n        \"\300\342\362\356\360 : \361\362\363\344\345\355\362 313
+ \343\360\363\357\357\373 \301\360\363\345\342 \313\345\342 \300\355
+\340\362\356\353\374\345\342\350\367\"\n    )\n    ),\n    GridRow(\n \+
+       GridCell(\n        \"\317\356\367\362\340 : lbruev@yandex.ru\\n
+ \\n\"\n    )\n    ),\n    GridRow(\n        GridCell(\n        \"\314
+\316\321\312\316\302\321\312\310\311 \303\316\321\323\304\300\320\321
+\322\302\305\315\315\333\311 \323\315\310\302\305\320\321\310\322\305
+\322 \350\354\345\355\350 M. \302. \313\356\354\356\355\356\361\356
+\342\340\"\n    )\n    ),\n    GridRow(\n        GridCell(\n        \"
+\324\340\352\363\353\374\362\345\362 \342\373\367\350\361\353\350\362
+\345\353\374\355\356\351 \354\340\362\345\354\340\362\350\352\350 \350
+ \352\350\341\345\360\355\345\362\350\352\350\"\n    )\n    ),\n    Gr
+idRow(\n        GridCell(\n        \"\312\340\364\345\344\360\340 \316
+\357\362\350\354\340\353\374\355\356\343\356 \363\357\360\340\342\353
+\345\355\350\377\\n \\n\"\n    )\n    ),\n    GridRow(\n        GridCe
+ll(\n        \"2022 \343\356\344\\n \\n\"\n    )\n    ),\n    GridRow(
+\n        GridCell(\n        Label(Image(cat(currentdir(),\"\\\\pic1.j
+pg\")))\n    )\n    ),\n    GridRow(\n        GridCell(\n        \"\\n
+ \\n\"\n    )\n    ),\n    GridRow(\n        GridCell(\n        Button
+(\"\302\345\360\355\363\362\374\361\377\", Action(CloseWindow('About')
+))\n    )\n    )\n    )\n]\n),\n Window[W1]('title' = \"\317\356\350
+\361\352 \357\363\362\345\351 \342 \343\360\340\364\345\", width=600,h
+eight=625,'menubar'='MB1',resizable=false,\n  [\n   MenuBar['MB1'](Men
+u(\"\314\345\355\376 &M\",MenuItem(\"\316 \357\360\356\343\360\340\354
+\354\345 &A\",RunWindow('About')),MenuItem(\"\317\356\354\356\371\374 \+
+&H\",RunWindow('Help')), MenuItem(\"\302\373\351\362\350 &Q\",Shutdown
+() ))),\n\n   BoxRow(border=true,inset=0,spacing=0,\n    BoxCell(Plott
+er[Pl1](width=250,height=250)),\n    BoxCell(Plotter[Pl2](width=250,he
+ight=250))\n   ),\n   BoxRow(\n    BoxCell(\n     GridLayout(inset=5,
+\n      GridRow(\n       GridCell(halign=right,Label(\"\312\356\353
+\350\367\345\361\362\342\356 \342\345\360\370\350\355: \")),\n       G
+ridCell(halign=left,TextField[TFF](7,halign=right,value=\"6\")),\n    \+
+   GridCell(halign=right,Button(\"\321\353\363\367\340\351\355\373\351
+ \343\360\340\364 &R\",onclick=MyPlot))\n       #GridCell(halign=left,
+TextField[TFR](7,halign=right,value=\"6\"))\n      )\n     )\n    )\n \+
+  ),\n   BoxRow(halign=left,\n    GridLayout(\n     GridRow(halign=lef
+t,\n      GridCell(\"\302\342\345\344\350\362\345 \360\345\341\360\340
+ \343\360\340\364\340 \342 \364\356\360\354\340\362\345 [\355\356\354
+\345\360 \342\345\360\370\350\355\373, \355\356\354\345\360 \342\345
+\360\370\350\355\373]:\",halign=left)\n     ),\n     GridRow(\n     Gr
+idCell(TextBox[TB1](width=40,height=5,value=\"[1,4], [2,5], [3,6], [1,
+ 2], [2, 3], [4, 5], [5, 6], [1, 5]\"))\n     )\n    )\n   ),\n   BoxR
+ow(halign=left,\n    BoxCell(\n     GridLayout(\n      GridRow(halign=
+left,\n       GridCell(\"\302\342\345\344\350\362\345 \342\345\361\340
+ \360\345\341\345\360\",halign=left)\n      ),\n      GridRow(\n      \+
+GridCell(TextBox[TB2](width=40,height=5,value=\"12, 16, 20, 11, 15, 13
+, 14, 26\"))\n      )\n     )\n    )\n   ),\n   BoxRow(halign=center,B
+utton(\"\314\356\351 \343\360\340\364 &G\",Evaluate(function=\"Plt\"))
+\n   )\n  ]\n ),\n Action[MyPlot](Evaluate(function=\"MyGraph()\"))\n)
+:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 11 "Display(M);" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}
+{MARK "14 0 0" 0 }{VIEWOPTS 1 1 1 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 
+2 33 1 1 }
