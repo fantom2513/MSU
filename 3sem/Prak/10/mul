@@ -1,0 +1,4 @@
+#! /usr/bin/python3
+import os
+1*2*3*4*5)
+os.remove("mul")
